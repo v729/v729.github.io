@@ -32,21 +32,352 @@
     <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./img/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/demo.css">
     <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/ScrollMagic.min.js"></script>
+    
+    <script src="./js/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js" >
+    </script>
+    <script src="./js/plugins/debug.addIndicators.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+
+    <script>
+        //        $(document).ready(function() {
+        //            test();
+        //            LoadingWithMask();
+        //        })
+        //
+        //
+        //        function test(imageName) {
+        //            LoadingWithMask();
+        //            setTimeout("closeLoadingWithMask()", 3000);
+        //        }
+        //
+        //        function LoadingWithMask() {
+        //            //화면의 높이와 너비를 구합니다.
+        //            var maskHeight = $(document).height();
+        //            var maskWidth = window.document.body.clientWidth;
+        //
+        //            //화면에 출력할 마스크를 설정해줍니다.
+        //            var mask = "<div id='mask' style='position:absolute; z-index:9000; background-color:#fff; display:none; left:0; top:0;'></div>";
+        //            var loadingImg = '';
+        //
+        //            loadingImg += "<div id='loadingImg'>";
+        //            loadingImg += " <img src='./img/Ellipsis-1s-204px.gif' style='position: absolute; z-index:9001;display: block; top:50%; left:50%; margin-top:-100px; margin-left:-100px; width: 200px; height:200px;'/>";
+        //            loadingImg += "</div>";
+        //
+        //            //화면에 레이어 추가
+        //            $('body').append(mask).append(loadingImg).addClass('hidden');
+        //
+        //            //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+        //            $('#mask').css({
+        //                'width': maskWidth,
+        //                'height': maskHeight,
+        //                'opacity': '1'
+        //            });
+        //
+        //            //마스크 표시
+        //            $('#mask').show();
+        //
+        //            //로딩중 이미지 표시
+        //            $('#loadingImg').show();
+        //        }
+        //
+        //        //로딩중인 표시 제거
+        //        function closeLoadingWithMask() {
+        //            $('#mask').fadeOut();
+        //            $('#loadingImg img').hide();
+        //            $('body').removeClass('hidden');
+        //        }
+        //   
+        $(document).ready(function(){
+            //스크롤시 로고를 헤더에 고정
+            var header = $("#header").offset().top;
+            $(window).scroll(function() {
+                var window = $(this).scrollTop();
+
+                if(header <= window) {
+                  $("#header").addClass("fixed");
+                } else {
+                  $("#header").removeClass("fixed");
+                }
+            });
+//            
+//           //tweenmax 연습 
+//            var tl = new TimelineLite;
+//            tl.to("#action .circle", 2, {
+//                scaleX:0.7,
+//                scaleY:0.7,
+//                x: 0,
+//                y: 0,
+//                ease: Power4.easeIn
+//            })
+//            .to("#action .circle",1,{
+//                scaleX:1,
+//                scaleY:1,
+//                ease:Elastic.easeOut.config(1,0.3),
+//                y:0
+//            });
+//            
+        });
+
+        $(function(){
+            
+        //섹션 와이프
+          var controller = new ScrollMagic.Controller({
+              globalSceneOptions:{
+                  triggerHook : 0,
+                  duration: '100%'
+              }
+          });
+            
+        var slides = document.querySelectorAll("section.panel");
+            
+        for (var i = 0; i <slides.length; i++){
+            var scene = new ScrollMagic.Scene({
+                triggerElement: slides[i]
+            })
+            .setPin(slides[i], {pushFollowers : false})
+            //.addIndicators() 마커 표시
+            .addTo(controller);
+        }
+
+            //크게 커지기
+//          var tween1 = TweenMax.fromTo('#animate1', 0.5, {
+//            border: "1px solid #333333",
+//            scale: 1
+//          }, {
+//              scale:2.5,
+//              border: "1px solid gold",
+//              x: 100,
+//              rotation: 360,
+//              repeat:01,
+//              yoyo:true
+//          });
+//            
+            
+//  var controller = new ScrollMagic.Controller();
+//  
+//         var moveSet = TweenMax.staggerFromTo('.set span', 0.4, {
+//             scale:0.85,
+//         },{
+//             opacity:1,
+//             scale:1.2,
+//             rotation:360
+//         },
+//            0.3
+//        );
+//            
+//          var scene = new ScrollMagic.Scene({
+//            triggerElement: "#skills",
+//            duration: "100%"
+//          })
+//          .setTween(moveSet)
+//          .addTo(controller)
+//          .addIndicators({
+//            name: "1"
+//          }) 
+        });
+    </script>
+
 </head>
 
-
 <body>
-보이나용?
-    <img src="./img/ico_user.png" alt="유저"/>
+    <div class="wrap">
+        <section class="section top" id="intro">
+            <div class="section_wrap">
+                <div id="header"  data-scroll="toggle(.fromTopIn, .fromTopOut)">
+                   <div class="header_wrap">
+                        <div id="action" class="me">
+                            <span class="circle"></span>
+                            <span class="triangle"></span>
+                            <span class="square"></span>
+                        </div>
+                        <strong>Portfolio</strong>
+                    </div>
+                    <a href="mailto:tnals729@naver.com" class="mail">    <span>tnals729@naver.com</span>
+                    </a>
+                </div>
+                <div class="section_content">
+                    <p>
+                        안녕하세요! 3년차 웹 퍼블리셔 윤수민입니다. 
+                    </p>
+                    <p>
+                        서비스 기획부터 디자인, 프론트엔드 모두 관심이 있습니다.
+                        좋아하는것, 잘하는것, 시장이원하는것의 교집합 = 나다.
+                        좋아하는것을하면 열심히 하게 되고, 궁극적으로 잘하게 됩니다.
+                    </p>
+                    <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="fromBottomIn ">저는 ‘좋아하는 것’과 ‘잘하는 것’ 중 ‘잘하는 것’에 더 집중을 하고, 거기에서부터 고민을 시작해야 하지 않나 싶습니다. 지금껏 살아오면서, 일해오면서 객관적으로 내가 다른 사람들보다 뛰어났던 점은 무엇이었나를 냉정하게 돌아봐야 한다는 것이죠. 왜냐하면, 미안한 얘기이지만, 약육강식의 논리가 작용되는 스타트업 세계에서 ‘열정’만 갖고는 부족하기 때문입니다.
+                    </p>
+                    <p>
+                        안녕하세요, 3년차 웹 퍼블리셔 윤수민입니다. 
+                        
+                        사용자가 쓰기 편하고 보기 쉬운 웹을 만드는 것에 가치를 두고 웹사이트를 제작하고 있습니다. 
+                    </p>
+                    <p>
+                        그리고 잘하는 것이 좋아하는 것일 가능성도 크다고 생각합니다. 잘하는 것에서는 성과를 낼 것이고, 성과를 내면 주변에서 인정을 받을 것이고, 그렇게 인정 받다 보면 자신과 그 일을 좋아하게 될 것이고.다.
+                    </p>
+                    <p>
+                        좋아하는 무언가가 생기면 질릴 때까지 해야돼요
+                        효율적인 게 좋고 노력은 최대화해요.
+                    </p>
+                    <p>
+                        웹 표준성과 접근성에 부합하는 목표를가지고 웹사이트를 제작하고 있습니다.
+                        앞으로 나아갈 수 있는 방향이 무궁무진하기 때문에 저는에 일이 좋습니다.
+                        좋아하는 일은 질릴 때까지, 해결될 때까지 파고드는 성격입니다.
+                    </p>
+                    <p>
+                        사용자가 쓰기 편하고 보기 쉬운 웹을 만드는 것이 가치 있다고 생각합니다.
+                        가치 있는소프트웨어를만들고,성장하고 싶습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section panel" id="skills">
+            <div class="left_side">
+               <div class="set" id="animate1">
+                   <span class="favorite">
+                       <span>좋아하는것</span>
+                   </span>
+                   <span class="goodat">
+                       <span>잘하는것</span>
+                   </span>
+                   <span class="myjob">
+                       <span>퍼블리싱</span>
+                   </span>
+               </div>
+                <div class="section_content">
+                <p data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="scaleUpIn">
+                    저에게 있어 좋아하는 것, 잘하는 것의 교집합은 퍼블리싱입니다.
+                    잘하는 것에서는 성과를 낼 것이고, 성과를 내면 주변에서 인정을 받을 것이고, 그렇게 인정을 받다보면 자신과 그 일을 좋아하게 됩니다.
+                </p>
+                </div>
+            </div>
+            
+           <div class="right_side">
+                <h1 data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="scaleUpIn">Skills</h1>
+                <div data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="fromBottomIn">
+                <h2>HTML</h2>
+                <ul>
+                    <li>HTML5 페이지 하드코딩</li>
+                    <li>모바일 페이지 제작</li>
+                    <li>웹표준을 준수한 효율적인 코드 설계</li>
+                </ul>
+                </div>
+                <div>
+                    <h2>CSS</h2>
+                    <ul>
+                        <li>CSS3</li>
+                        <li>미디어 쿼리를 활용한 반응형 레이아웃 구현</li>
+                        <li>다양한 브라우저 호환성 관리</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>JavaScript</h2>
+                    <ul>
+                        <li>ES6</li>
+                        <li>jQuery UI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>More</h2>
+                    <ul>
+                        <li>협업을 위한 Git 사용</li>
+                        <li>Adobe XD</li>
+                        <li>Photoshop, illustrator 디자인 툴</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section panel" id="works">
+            <div class="section_wrap">
+                <h2>My Stories</h2>
+                <ul class="history">
+                    <li>
+                        <h4>2020 ~ 현재</h4>
+                        <ul class="ulist">
+                            <li>Whee-param.kr 대전시여주시 공공배달앱</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>2019</h4>
+                        <ul class="ulist">
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>2019</h4>
+                        <ul class="ulist">
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>2019</h4>
+                        <ul class="ulist">
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="section panel" id="contactMe">
+           <div class="left_side">
+                <h2 class="round_logo">
+                   <img src="./img/logo_round.png" alt="if you want a publisher yunsoomin">
+               </h2>
+            </div>
+            <div class="right_side">
+                <h2>같이 일해보실래욤?</h2>
+                <div class="section_content">
+                    <ul class="section_list">
+                        <li>좋아하는 일을 잘하는 </li>
+                        <li>열정을 갖춘</li>
+                    </ul>
+                </div>
+                <a href="" target="_blank" class="btn_resume"><span> 보러가기</span></a>
+            </div>
+        </section>
+    </div> 
+    
+    <script src="./js/ScrollTrigger.min.js"></script>
+   
+    <script>
+        //scrollTrigger 
+        window.counter = function() {
+            // this refers to the html element with the data-scroll-showCallback tag
+            var span = this.querySelector('span');
+            var current = parseInt(span.textContent);
+
+            span.textContent = current + 1;
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var trigger = new ScrollTrigger({
+                addHeight: true
+            });
+        });
+        
+
+
+
+    </script>
 </body>
