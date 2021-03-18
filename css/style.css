@@ -49,7 +49,6 @@ input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}
 #skills .left_side {background-color: #fff;}
 #skills .right_side {background-color: #000; color:#fff;}
 #skills .right_side h1, h2 {color:#fff;}
-.section.top {height: 100%;}
 .section#works {background: #000;}
 .section#contactMe {background: #000;}
 
@@ -61,7 +60,7 @@ input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}
 #intro .logoTop {width:100px; height: 29px; margin: 0 auto;}
 
 .me {display: flex; justify-content: space-between; align-items: center;}
-.circle {width: 30px; height: 30px ;background-color: #cd2747; border-radius: 50%;}
+.circle {width: 30px; height: 30px ;background-color: #cd2747; border-radius: 50%; }
 .triangle {width: 0; height: 0; border-bottom:30px solid #549ecd; border-left: 17px solid transparent; border-right: 17px solid transparent;}
 .square {width: 30px; height: 30px; background-color: #ffd460;}
 
@@ -102,3 +101,5 @@ input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}
 .ulist > li{font-size:0.875rem;position:relative;padding-left:9px;margin-top:6px; color: #fff; text-align: left;}
 .ulist > li::before{background-color:#f26532;content:'';display:block;position:absolute;width:2px;height:2px;top:9px;left:0}
 .ulist > li:first-of-type{margin-top:0}
+
+.main_shape {display:inline-block; width: 100px; height: 100px; background-color: red;}
