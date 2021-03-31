@@ -55,154 +55,22 @@
 
 
     <script>
-        //        $(document).ready(function() {
-        //            test();
-        //            LoadingWithMask();
-        //        })
-        //
-        //
-        //        function test(imageName) {
-        //            LoadingWithMask();
-        //            setTimeout("closeLoadingWithMask()", 3000);
-        //        }
-        //
-        //        function LoadingWithMask() {
-        //            //화면의 높이와 너비를 구합니다.
-        //            var maskHeight = $(document).height();
-        //            var maskWidth = window.document.body.clientWidth;
-        //
-        //            //화면에 출력할 마스크를 설정해줍니다.
-        //            var mask = "<div id='mask' style='position:absolute; z-index:9000; background-color:#fff; display:none; left:0; top:0;'></div>";
-        //            var loadingImg = '';
-        //
-        //            loadingImg += "<div id='loadingImg'>";
-        //            loadingImg += " <img src='./img/Ellipsis-1s-204px.gif' style='position: absolute; z-index:9001;display: block; top:50%; left:50%; margin-top:-100px; margin-left:-100px; width: 200px; height:200px;'/>";
-        //            loadingImg += "</div>";
-        //
-        //            //화면에 레이어 추가
-        //            $('body').append(mask).append(loadingImg).addClass('hidden');
-        //
-        //            //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
-        //            $('#mask').css({
-        //                'width': maskWidth,
-        //                'height': maskHeight,
-        //                'opacity': '1'
-        //            });
-        //
-        //            //마스크 표시
-        //            $('#mask').show();
-        //
-        //            //로딩중 이미지 표시
-        //            $('#loadingImg').show();
-        //        }
-        //
-        //        //로딩중인 표시 제거
-        //        function closeLoadingWithMask() {
-        //            $('#mask').fadeOut();
-        //            $('#loadingImg img').hide();
-        //            $('body').removeClass('hidden');
-        //        }
-        //   
-        $(document).ready(function(){
-            //스크롤시 로고를 헤더에 고정
-            var header = $("#header").offset().top;
-            $(window).scroll(function() {
-                var window = $(this).scrollTop();
-
-                if(header <= window) {
-                  $("#header").addClass("fixed");
-                } else {
-                  $("#header").removeClass("fixed");
-                }
-            });
-//            
-//           //tweenmax 연습 
-//            var tl = new TimelineLite;
-//            tl.to("#action .circle", 2, {
-//                scaleX:0.7,
-//                scaleY:0.7,
-//                x: 0,
-//                y: 0,
-//                ease: Power4.easeIn
-//            })
-//            .to("#action .circle",1,{
-//                scaleX:1,
-//                scaleY:1,
-//                ease:Elastic.easeOut.config(1,0.3),
-//                y:0
-//            });
-//            
-        });
-
+        
         $(function(){
             
-        //섹션 와이프
-          var controller = new ScrollMagic.Controller({
-              globalSceneOptions:{
-                  triggerHook : 0,
-                  duration: '100%'
-              }
-          });
-            
-        var slides = document.querySelectorAll("section.panel");
-            
-        for (var i = 0; i <slides.length; i++){
-            var scene = new ScrollMagic.Scene({
-                triggerElement: slides[i]
-            })
-            .setPin(slides[i], {pushFollowers : false})
-            //.addIndicators() 마커 표시
-            .addTo(controller);
-        }
-
+            //첫 화면 로딩시 글자 나타나기
+            $('.show-up').addClass('active');
             
             
-        //크게 커지기
-//            var scrollMagicController = new ScrollMagic.Controller();
-//            
-//          var tween1 = TweenMax.to('#animate1', 0.5, {
-//            backgroundColor: "#fff",
-//            scale: 5,
-//            rotate: 360
-//          }); 
-//            
-//            var scene = new ScrollMagic.Scene({
-//                triggerElement: '#scene',
-//                duration: '100%'
-//            })
-//            .setTween(tween1)
-//            .addIndicators()
-//            .addTo(scrollMagicController)
             
-//  var controller = new ScrollMagic.Controller();
-//  
-//         var moveSet = TweenMax.staggerFromTo('.set span', 0.4, {
-//             scale:0.85,
-//         },{
-//             opacity:1,
-//             scale:1.2,
-//             rotation:360
-//         },
-//            0.3
-//        );
-//            
-//          var scene = new ScrollMagic.Scene({
-//            triggerElement: "#skills",
-//            duration: "100%"
-//          })
-//          .setTween(moveSet)
-//          .addTo(controller)
-//          .addIndicators({
-//            name: "1"
-//          }) 
+          //console.log('helloworld');
             
-            
-            //메인 커지기
-            var mainWrapper = document.getElementById('main'),
-                heroBlock = document.getElementById('animate1'),
+            //main_shape 애니메이션 ㄱ ㄱ
+            var mainWrapper = document.getElementById('intro'),
+                chageShape = document.getElementById('animation_shape'),
 
                 // set the duration in pixels
-                duration = 8000,
+                duration = 1500,
 
                 // define the main controller for ScrollMagic (note we can have multiple controllers if needed)
                 controller = new ScrollMagic.Controller({
@@ -217,18 +85,25 @@
 
             // start a new ScrollMagic scene by calling the provided method from the ScrollMagic Class
             new ScrollMagic.Scene({
-                triggerElement: mainWrapper,
+                triggerElement: ".copyright",
                 duration: (duration - window.innerHeight)
             })
             .setTween(new TimelineMax().add([
                 // hero block animations
-                TweenMax.to(heroBlock, 1, {scaleY: 5}),
-                TweenMax.to(heroBlock, 1, {scaleX: 5, delay: 0.5}),
-                TweenMax.to(heroBlock, 1, {borderRadius: '50%', delay: 0.5}),
-
+                TweenMax.to(chageShape, 1, {y:1000, delay: 0.5}),
+                TweenMax.to(chageShape, 1, {scaleY:50, y:200, delay: 0.5}),
+                TweenMax.to(chageShape, 1, {scaleY:150, y:0, delay: 0.5}),
+                TweenMax.to(chageShape, 1, {scaleX: 5, delay: 0.5}),
+                TweenMax.to(chageShape, 1, {delay: 0.5}),
+                
+                TweenMax.to('.intro_text', 1.5, {opacity:0, y:100}),
+                TweenMax.to('.change_text', 1.5, {opacity:1, y:-50, ease : Bounce.easeOut }),
+                TweenMax.to('.show_text', 5, {opacity:1, y:-50}),
+                TweenMax.to('.scroll_down', 1, {opacity:0}),
+                //TweenMax.staggerTo('#text1', 1.5, {opacity:1, y:200, ease: Back.easeOut}),
              ]))
             // set hero block fixed for duration of wrapper
-            .setPin(heroBlock)
+            .setPin(chageShape)
 
             // add helpful indicators to help with setting up animations right
             .addIndicators()
@@ -236,177 +111,68 @@
             // finally, we add the animation to the main controller we defined in the beginning
             .addTo(controller);
 
-        });
+          });
+        
     </script>
 
 </head>
 
 <body>
     <div class="wrap">
-       <section class="section" id="main">
-           <div class="section_wrap" id="scene" style="position: relative;">
-                <span class="main_shape" id="animate1"></span>
-           </div>
-       </section>
         <section class="section" id="intro">
-            <div class="section_wrap">
-                <div id="header"  data-scroll="toggle(.fromTopIn, .fromTopOut)">
-                   <div class="header_wrap">
-                        <div id="action" class="me">
-                            <span class="circle"></span>
-                            <span class="triangle"></span>
-                            <span class="square"></span>
-                        </div>
-                        <strong>Portfolio</strong>
-                    </div>
-                    <a href="mailto:tnals729@naver.com" class="mail">    <span>tnals729@naver.com</span>
-                    </a>
-                </div>
-                <div class="section_content">
-                    <p>
-                        안녕하세요! 3년차 웹 퍼블리셔 윤수민입니다. 
-                    </p>
-                    <p>
-                        서비스 기획부터 디자인, 프론트엔드 모두 관심이 있습니다.
-                        좋아하는것, 잘하는것, 시장이원하는것의 교집합 = 나다.
-                        좋아하는것을하면 열심히 하게 되고, 궁극적으로 잘하게 됩니다.
-                    </p>
-                    <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="fromBottomIn ">저는 ‘좋아하는 것’과 ‘잘하는 것’ 중 ‘잘하는 것’에 더 집중을 하고, 거기에서부터 고민을 시작해야 하지 않나 싶습니다. 지금껏 살아오면서, 일해오면서 객관적으로 내가 다른 사람들보다 뛰어났던 점은 무엇이었나를 냉정하게 돌아봐야 한다는 것이죠. 왜냐하면, 미안한 얘기이지만, 약육강식의 논리가 작용되는 스타트업 세계에서 ‘열정’만 갖고는 부족하기 때문입니다.
-                    </p>
-                    <p>
-                        안녕하세요, 3년차 웹 퍼블리셔 윤수민입니다. 
-                        
-                        사용자가 쓰기 편하고 보기 쉬운 웹을 만드는 것에 가치를 두고 웹사이트를 제작하고 있습니다. 
-                    </p>
-                    <p>
-                        그리고 잘하는 것이 좋아하는 것일 가능성도 크다고 생각합니다. 잘하는 것에서는 성과를 낼 것이고, 성과를 내면 주변에서 인정을 받을 것이고, 그렇게 인정 받다 보면 자신과 그 일을 좋아하게 될 것이고.다.
-                    </p>
-                    <p>
-                        좋아하는 무언가가 생기면 질릴 때까지 해야돼요
-                        효율적인 게 좋고 노력은 최대화해요.
-                    </p>
-                    <p>
-                        웹 표준성과 접근성에 부합하는 목표를가지고 웹사이트를 제작하고 있습니다.
-                        앞으로 나아갈 수 있는 방향이 무궁무진하기 때문에 저는에 일이 좋습니다.
-                        좋아하는 일은 질릴 때까지, 해결될 때까지 파고드는 성격입니다.
-                    </p>
-                    <p>
-                        사용자가 쓰기 편하고 보기 쉬운 웹을 만드는 것이 가치 있다고 생각합니다.
-                        가치 있는소프트웨어를만들고,성장하고 싶습니다.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="section panel" id="skills">
-            <div class="left_side">
-               <div class="set">
-                   <span class="favorite">
-                       <span>좋아하는것</span>
-                   </span>
-                   <span class="goodat">
-                       <span>잘하는것</span>
-                   </span>
-                   <span class="myjob">
-                       <span>퍼블리싱</span>
-                   </span>
-               </div>
-                <div class="section_content">
-                <p data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="scaleUpIn">
-                    저에게 있어 좋아하는 것, 잘하는 것의 교집합은 퍼블리싱입니다.
-                    잘하는 것에서는 성과를 낼 것이고, 성과를 내면 주변에서 인정을 받을 것이고, 그렇게 인정을 받다보면 자신과 그 일을 좋아하게 됩니다.
+           <p class="copyright">
+               <span class="animation_word show-up nth3">
+                   Copyright 2021. YUNSOOMIN AllRights Reserved.
+               </span>
+           </p>
+            <h2 class="intro_text">
+                <span class="animation_word show-up nth0">Make</span>
+                <span class="animation_word show-up nth1"> it</span> 
+                <span class="animation_word show-up nth2">
+                    <span class="point">as a PUBLISHER</span>
+                </span>
+            </h2>
+            <span class="intro_shape" id="animation_shape"></span>
+            <span class="change_text">Make it <span class="point">BETTER</span></span>
+            <div class="show_text" data-scroll= "toggle(.fromTopIn, .fromTopOut)">
+                <p>
+                    더 좋은 코드를 작성하는 웹퍼블리셔 윤수민입니다.
                 </p>
-                </div>
+                <p>
+                    웹 퍼블리셔는 기획 - 디자인 - 개발의 모든 포지션을 잇는 역할을 하기 때문에 웹에 대한 전반적인 이해와 폭넓은 지식을 갖추어야한다고 생각합니다.
+                </p>
+                <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="fromBottomIn ">저는 다수의 프로젝트에서 기획자로서 디자이너로서 퍼블리셔로서 참여하여 실무 경험을 쌓았습니다.
+                </p>
+                <p>
+                    다양한 포지션에서 쌓은 실무 경험을 통해 기획과 디자인에 대한 이해도를 높일 수 있었고, 어떤 방식으로 코딩하면 데이터를 수월하게 연결할 수 있을 지에 대한 개발적인 공부도 할 수 있었습니다.
+                </p>
+                <p>
+                    저는 마크업을 하기 전, HTML을 구조적으로 작성하기 위해 페이지의 레이아웃을 컴포넌트화 하는 작업을 먼저합니다.
+                </p>
+                <p>
+                    탄탄한 UI 위에 CSS, javaScript 를 활용해 웹에 생명력을 불어 넣어주는 것을 좋아합니다.
+                </p>
+                <p>
+                    Make it Better, 더 좋은 코드를 작성하면
+                </p>
+                <p>
+                    협업하는 동료가 더 쉽게 읽고 이해할 수 있고,
+                    유지보수하기 더 편하고,
+                    모든 클라이언트에게 더 편리한 웹접근성을 제공할 수 있고,
+                </p>
+                <p>
+                    Make it as a Publisher! 제 분야에서 성공할 수 있다고 생각합니다.
+                </p>
             </div>
-            
-           <div class="right_side">
-                <h1 data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="scaleUpIn">Skills</h1>
-                <div data-scroll="toggle(.fromBottomIn, .fromBottomOut)" class="fromBottomIn">
-                <h2>HTML</h2>
-                <ul>
-                    <li>HTML5 페이지 하드코딩</li>
-                    <li>모바일 페이지 제작</li>
-                    <li>웹표준을 준수한 효율적인 코드 설계</li>
-                </ul>
-                </div>
-                <div>
-                    <h2>CSS</h2>
-                    <ul>
-                        <li>CSS3</li>
-                        <li>미디어 쿼리를 활용한 반응형 레이아웃 구현</li>
-                        <li>다양한 브라우저 호환성 관리</li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>JavaScript</h2>
-                    <ul>
-                        <li>ES6</li>
-                        <li>jQuery UI</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>More</h2>
-                    <ul>
-                        <li>협업을 위한 Git 사용</li>
-                        <li>Adobe XD</li>
-                        <li>Photoshop, illustrator 디자인 툴</li>
-                    </ul>
-                </div>
+            <div class="scroll_down">
+                <a href="#skills" class="animation_word show-up nth3">Scroll Down</a>
             </div>
         </section>
-
-        <section class="section panel" id="works">
-            <div class="section_wrap">
-                <h2>My Stories</h2>
-                <ul class="history">
-                    <li>
-                        <h4>2020 ~ 현재</h4>
-                        <ul class="ulist">
-                            <li>Whee-param.kr 대전시여주시 공공배달앱</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>2019</h4>
-                        <ul class="ulist">
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>2019</h4>
-                        <ul class="ulist">
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>2019</h4>
-                        <ul class="ulist">
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                            <li>대상 Wellife.co.kr 홈페이지 구축</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <section class="section" id="skills">
         </section>
-        <section class="section panel" id="contactMe">
-           <div class="left_side">
-                <h2 class="round_logo">
-                   <img src="./img/logo_round.png" alt="if you want a publisher yunsoomin">
-               </h2>
-            </div>
-            <div class="right_side">
-                <h2>같이 일해보실래욤?</h2>
-                <div class="section_content">
-                    <ul class="section_list">
-                        <li>좋아하는 일을 잘하는 </li>
-                        <li>열정을 갖춘</li>
-                    </ul>
-                </div>
-                <a href="" target="_blank" class="btn_resume"><span> 보러가기</span></a>
-            </div>
+        <section class="section" id="works">
+        </section>
+        <section class="section" id="contactMe">
         </section>
     </div> 
     
@@ -428,8 +194,6 @@
             });
         });
         
-
-
 
     </script>
 </body>
