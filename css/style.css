@@ -50,7 +50,7 @@ input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}
 
 .section#skills { background: #000;z-index: 999;}
 .section#works {background: #fff;z-index: 999;}
-.section#contactMe {background: #fff;z-index: 999;}
+.section#contactMe {background: #000;z-index: 999;}
 
 
 /*저작권표시*/
@@ -221,6 +221,30 @@ background: linear-gradient(45deg, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Fire
 
 
 
+/* #contactMe */
+.logo_side {width: 400px; float: left; min-height: 201px; margin-left: 0; position: relative;}
+.content_side {width: calc(100% - 400px); float: left;}
+
+.round_logo {width: 150px; height: 150px;position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);animation: a-circle-rotate 9s infinite linear; }
+@keyframes a-circle-rotate {
+    from {
+        transform : translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform : translate(-50%, -50%) rotate(360deg);
+    }
+}
+.contact_top h2 {line-height: 1.15; font-family: 'Montserrat', sans-serif; color: #A1A1A6 ; font-size: 80px; font-weight: 700;}
+.contact_top p {line-height: 1.15; font-family: 'Montserrat', sans-serif; color: #fff ; font-size: 80px; font-weight: 700;}
+
+.contact_list {border:1px solid red; margin-top:.8em;}
+.contact_list li {margin-bottom: 15px; color: #A1A1A6; line-height: 1.25; font-size: 28px; font-weight: 500; display: flex;}
+.contact_list li strong {width: 95px; font-weight: 500; color: #A1A1A6;}
+.contact_list li p { flex: 0% 1 0%; }
+
+.icon_share {overflow: hidden; width: 40px; height: 40px; background:url(/img/share.svg) no-repeat 50% 50%; background-size: 40px 40px; font-size: 0; text-indent: -9999px;}
+.icon_tel {overflow: hidden; width: 40px; height: 40px; background:url(/img/call.svg) no-repeat 50% 50%; background-size: 40px 40px; font-size: 0; text-indent: -9999px;}
+
 
 
 .section_wrap {min-height: 100vh; padding: 15vh 0; position: relative; box-sizing: border-box;text-align: center}
@@ -246,15 +270,6 @@ background: linear-gradient(45deg, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Fire
 .btn_resume {display: block; width: 200px; height: 80px; line-height:80px; border:1px solid #fff; color:#fff; transition: all 0.5s; }
 .btn_resume:hover {background-color: rgba(225,225,225,0.8); color: #000}
 
-.round_logo {width: 150px; height: 150px;position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);animation: a-circle-rotate 9s infinite linear; }
-@keyframes a-circle-rotate {
-    from {
-        transform : translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform : translate(-50%, -50%) rotate(360deg);
-    }
-}
 
 .history {position: relative; padding: 30px 0 40px;}
 .history::after{content:'';display:block;float:none;clear:both;height:0;font-size:0;line-height:0;visibility:hidden}

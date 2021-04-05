@@ -111,6 +111,24 @@
 
           });
         
+        
+        
+	function CopyToUrl() {
+		var url = "tnals729@naver.com";
+		var isIE = true;
+		var agent = navigator.userAgent.toLowerCase();
+		if ( (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+			isIE = true;
+		} else {
+			isIE = false;
+		} 
+		if (isIE) {
+			if(confirm("이메일 주소를 클립보드에 복사하시겠습니까?"))
+				window.clipboardData.setData("Text", url);
+		} else {
+			temp = prompt("이메일 주소를 Ctrl+C 하여 클립보드로 복사하세요", url);
+		}
+	}
     </script>
 
 </head>
@@ -243,6 +261,37 @@
         <section class="section" id="works">
         </section>
         <section class="section" id="contactMe">
+           <div class="logo_side">
+                <div class="round_logo">
+                   <img src="./img/logo_round.png" alt="if you want a publisher yunsoomin">
+               </div>
+            </div>
+            <div class="content_side">
+                <div class="contact_top">
+                    <h2>I can Make it!</h2>
+                    <p>
+                        함께 일할 때 시너지를 주는.<br/>
+                        효율적으로 구현하는.
+                    </p>
+                </div>
+                <ul class="contact_list">
+                    <li>
+                        <strong>이메일</strong>
+                        <p>
+                            tnals729@naver.com
+                        </p>
+                        <a href="javascript:;" onclick="CopyToUrl()" class="icon_share">복사</a>
+                    </li>
+                    <li>
+                        <strong>연락처</strong>
+                        <p>
+                            010-2077-7729
+                        </p>
+                        <a href="tel:01020777729" class="icon_tel"><span>전화</span></a>
+                    </li>
+                </ul>
+                <a href="" target="_blank" class="btn_resume"><span> 이력서 상세보기</span></a>
+            </div>
         </section>
     </div> 
     
