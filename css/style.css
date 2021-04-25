@@ -195,7 +195,7 @@ footer .btn-contact span:after {width:1px;height:20px;background:#fff;content:''
 .contact-list ul li span {width:20%;display:block;float:left}
 .btn-area {display:flex;width:100%;margin-top:50px;}
 .btn-area a:first-child {margin-right:10px;}
-.btn{position:relative;display:block;font-size:16px;vertical-align:middle;text-align:center;width:100%;height:50px;line-height:50px !important;box-flex:1;-webkit-box-flex:1;-moz-box-flex:1;border:2px solid #222;transition: all 0.5s ease;}
+.btn{position:relative;display:block;font-size:16px;vertical-align:middle;text-align:center;width:100%;height:50px;line-height:50px !important;border:2px solid #222;transition: all 0.5s ease;}
 .btn:hover {background:#222;color:#fff;}
 
 /* PC에서만 HOVER 되게 */
@@ -206,19 +206,12 @@ footer .btn-contact span:after {width:1px;height:20px;background:#fff;content:''
 }
 
 
-
-
-
+/* intro animation */
 .animation_word {
     display: inline-block;
 }
 .show-up {
 	opacity: 0;
-/*
-	-webkit-transform: translate3d(0,60px,0);
-	-ms-transform: translate3d(0,60px,0);
-	transform: translate3d(0,60px,0);
-*/
 	-webkit-transition: all .5s ease;
 	transition: all .5s ease;
 }
@@ -363,4 +356,3 @@ footer .btn-contact span:after {width:1px;height:20px;background:#fff;content:''
   .contents-list-board li a.btn-detail {float: inherit; margin-top:8px;padding: 7px 12px;}
   .comment {font-size: 12px;line-height: 1rem;}
 }
-

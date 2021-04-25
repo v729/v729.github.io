@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="max-age=3000, must-revalidate">
     <!-- Description -->
     <title>윤수민 : Portfolio</title>
     <meta name="description" content="Web publisher Soo min Yun's portfolio site.">
@@ -80,7 +79,7 @@
                 let sectionTop = $(".section").eq(i).offset().top;
                   
                 let sectionBottom = sectionTop + $(".section").eq(i).outerHeight();
-               
+               g
                 if(scroll > sectionTop - 200 && scroll < sectionBottom) {
                   $(".section").removeClass("on");
                   $(".section").eq(i).addClass("on");
